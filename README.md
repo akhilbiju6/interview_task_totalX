@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # totalx_interview_project
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# interview_task_totalX
+>>>>>>> 62e8ffeba41695e0ffa2b2bd9b57112dafa647d8
