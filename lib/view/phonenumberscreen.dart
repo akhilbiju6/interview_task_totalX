@@ -1,17 +1,20 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:totalx_interview_project/utils.dart';
 import 'package:totalx_interview_project/view/verificationscreen.dart';
 
 class PhoneNumberVerificationScreen extends StatefulWidget {
-  const PhoneNumberVerificationScreen({super.key});
+  const PhoneNumberVerificationScreen({super.key,});
 
   @override
   State<PhoneNumberVerificationScreen> createState() => _PhoneNumberVerificationScreenState();
 }
 
 class _PhoneNumberVerificationScreenState extends State<PhoneNumberVerificationScreen> {
+  TextEditingController phonenocontroller=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var size=MediaQuery.of(context).size;
@@ -40,6 +43,7 @@ class _PhoneNumberVerificationScreenState extends State<PhoneNumberVerificationS
                     Text("Enter Phone Number",style: Fonts.boldFont,),
                     SizedBox(height: 30,),
                 TextFormField(
+                  controller: phonenocontroller,
                  decoration: InputDecoration(
                   hintText: "Enter Phone Number*",
                   hintStyle: Fonts.lightFont,
@@ -63,26 +67,38 @@ class _PhoneNumberVerificationScreenState extends State<PhoneNumberVerificationS
                 ],
                               ),
                             ),SizedBox(height: 30,),
-                            InkWell(
-                              onTap: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationScreen()));
-                              },
-                              child: Container(
-                                child: Center(
-                                  child: Text("Get OTP",style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 17
-                                  ),),
-                                ),
-                                height: 50,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: ColorConstants.customBlack,
-                                  borderRadius: BorderRadius.circular(20)
+   InkWell(
+                                onTap: () {
+                                  FirebaseAuth.instance.verifyPhoneNumber(
+                        phoneNumber: phonenocontroller.text,
+                        verificationCompleted: (phoneAuthCredential) {
+                        },
+                       verificationFailed: (error) {
+                         print(error.toString());
+                       },
+                        codeSent: (verificationId, forceResendingToken) {
+                           Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationScreen(verificationId: verificationId,),));
+                        },
+                         codeAutoRetrievalTimeout: (verificationId) {
+                           print("auto retrieval timeout");
+                         },);
+                                },
+                                child: Container(
+                                  child: Center(
+                                    child: Text("Get OTP",style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17
+                                    ),),
+                                  ),
+                                  height: 50,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: ColorConstants.customBlack,
+                                    borderRadius: BorderRadius.circular(20)
+                                  ),
                                 ),
                               ),
-                            )
                           ],
                         ),
                  ] ),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "816719558929",
+    "project_id": "interviewtasktotalx",
+    "storage_bucket": "interviewtasktotalx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816719558929:android:834027e00c2abd754334b0",
+        "android_client_info": {
+          "package_name": "com.totalx.interviewtask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNgBEtWjCAveEEqb110HiXnTycM0_w5w4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
