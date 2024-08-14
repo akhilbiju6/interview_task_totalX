@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:totalx_interview_project/utils.dart';
-import 'package:totalx_interview_project/view/customerlistscreen.dart';
+import 'package:totalx_interview_project/view/customerlistscreen/customerlistscreen.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key, required this.verificationId});

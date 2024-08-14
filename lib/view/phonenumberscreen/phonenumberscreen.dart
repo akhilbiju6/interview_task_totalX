@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:totalx_interview_project/utils.dart';
-import 'package:totalx_interview_project/view/verificationscreen.dart';
+import 'package:totalx_interview_project/view/verificationscreen/verificationscreen.dart';
 
 class PhoneNumberVerificationScreen extends StatefulWidget {
   const PhoneNumberVerificationScreen({super.key,});

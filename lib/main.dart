@@ -1,9 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:async';
+
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:totalx_interview_project/view/phonenumberscreen.dart';
+import 'package:provider/provider.dart';
+import 'package:totalx_interview_project/control/controller.dart';
+import 'package:totalx_interview_project/view/phonenumberscreen/phonenumberscreen.dart';
 
 Future <void> main() async {
    WidgetsFlutterBinding.ensureInitialized();
@@ -24,9 +28,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: PhoneNumberVerificationScreen(),
+    return MultiProvider(
+      providers: [
+         ChangeNotifierProvider(create: (context) => HomeScreenController(),)
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: PhoneNumberVerificationScreen(),
+      ),
     );
   }
 }
